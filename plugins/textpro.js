@@ -7,7 +7,7 @@ let handler = async (m, { conn, args: [effect], text: txt }) => {
   if (!effect in effects) throw `Efek *${effect}* tidak ditemukan`
   let [text, ...text2] = txt.replace(effect, '').trimStart().split(split)
   text2 = text2.join(split)
-  let url = global.API('xteam', '/textpro/' + effect, { text, text2 }, 'APIKEY')
+  let url = global.API('xteam', '/textpro/' + effect, { text, text2 }, '9cd4f4af8da100ea')
   await conn.sendFile(m.chat, url, 'file.jpg', `*TEXTPRO*\n*Efek:* ${effect}`, m, 0, { thumbnail: Buffer.alloc(0) })
 }
 handler.help = ['textpro'].map(v => v + ' <efek> <teks>|[teks2]')
